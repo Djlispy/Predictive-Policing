@@ -5,6 +5,7 @@ var word = el.innerHTML.trim();
 var finished = false;
 
 el.innerHTML = "";
+
 for (var i = 0; i < word.length; i++) {
     var span = document.createElement("span");
     span.innerHTML = word.charAt(i);
