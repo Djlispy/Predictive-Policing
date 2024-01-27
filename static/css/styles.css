@@ -28,7 +28,7 @@ div.title{
     font-size: 2em;
     text-transform: uppercase;
     letter-spacing: 5px;
-    color: green; /* Entire text color */
+    color: blue; /* Entire text color */
     font-family: 'Courier New', monospace;
     flex: 1; /* Takes up remaining space horizontally */
     margin: 0; /* Remove any default margin */
