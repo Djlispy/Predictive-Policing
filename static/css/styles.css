@@ -78,6 +78,9 @@ footer {
 }
 
 
+svg{
+    float: right;
+}
 
 g path:hover {
     fill: lightblue !important;
