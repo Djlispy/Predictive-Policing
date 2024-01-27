@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictive Policing</title>
+    <link rel="stylesheet" href="../static/css/styles.css"/>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/5339/5339159.png" type="image/x-icon"/>
+    <!-- <script src="../static/scripts/main.js"></script>     -->
+    <!-- Include the Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDe1-ZTDGd4kbSeMb9uWX5cIT1EK9otXJM&callback=initMap" async defer></script>
+    
+</head>
+<body>
+<header>
+    <div class="title">
+    <h1 id="loading">Crime Predicting AI</h1>
+    </div>
+
+    <!-- Display the time inside the header on the right -->
+    
+    <div id="time"></div>
+
+
+</header>
+    <div class="mainbody">
+        <label>Enter Coordinates:</label>
+        <br>
+
+        <label for="latitudeInput">Latitude:</label>
+        <textarea id="latitudeInput" rows="1" cols="50"></textarea>
+        <br>
+
+        <label for="longitudeInput">Longitude:</label>
+        <textarea id="longitudeInput" rows="1" cols="50"></textarea>
+        <br>
+        
+        <button onclick="submitCoordinates()">Submit Coordinates</button>
+        <div id="map"></div>
+
+
+        <h3>Area:</h3>    
+        <p>East Lake High School</p>
+        <p><strong>Types of Crimes:</strong></p>
+        <ul>
+            <li>Robbery</li>
+            <li>Assault</li>
+            <li>Domestic violence</li>
+            <li>Homicide</li>
+            <li>Kidnapping</li>
+            <li>Arson</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy;Crime Predicting - Max G, Carter N</p>
+    </footer>
+       
+    <script src="../static/scripts/main.js"></script> 
+</body>
+</html>
