@@ -76,3 +76,9 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+
+
+g path:hover {
+    fill: lightblue !important;
+    }

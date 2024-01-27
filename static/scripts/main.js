@@ -91,3 +91,19 @@ function initMap(location, mapType) {
         title: 'Entered Location'
     });
 }
+
+
+
+const paths = document.querySelectorAll('#interactive-svg path');
+
+paths.forEach(path => {
+    path.addEventListener('mouseenter', () => {
+        path.setAttribute('original-fill', path.getAttribute('fill'));
+        path.setAttribute('fill', 'lightblue');
+    });
+
+    path.addEventListener('mouseleave', () => {
+        const originalFill = path.getAttribute('original-fill');
+        path.setAttribute('fill', originalFill);
+    });
+});
