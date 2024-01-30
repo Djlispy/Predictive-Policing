@@ -1,72 +1,92 @@
-#map {
-    height: 400px;
-    width: 400px;
-    float: right;
-    margin-right: 2%;
-}
-
-
 header {
-    background-color: rgb(13, 13, 13);
+    background-color: rgb(16, 16, 16);
     padding: 1%;
     text-align: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2%;
-    
-}
-
-div.title{
-    flex: 1; /* Allow the title div to take up remaining space */
+  
+  }
+  
+  div.title {
+    flex: 1;
+    /* Allow the title div to take up remaining space */
     display: flex;
     align-items: center;
-    margin-left: 20%;
-}
-
-#loading {
+    margin-left: 3%;
+  }
+  
+  #loading {
     font-size: 2em;
     text-transform: uppercase;
     letter-spacing: 5px;
-    color: blue; /* Entire text color */
+    color: blue;
+    /* Entire text color */
     font-family: 'Courier New', monospace;
-    flex: 1; /* Takes up remaining space horizontally */
-    margin: 0; /* Remove any default margin */
-
-}
-
-.glow {
-    color: blue; /* Entire text color for the glow effect */
-    text-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue; /* Red glow effect */
-}
-
-#time {
-    color: #e4e4e4; /* Gray color */
+    flex: 1;
+    /* Takes up remaining space horizontally */
+    margin: 0;
+    /* Remove any default margin */
+  
+  }
+  
+  .glow {
+    color: blue;
+    /* Entire text color for the glow effect */
+    text-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue;
+    /* Red glow effect */
+  }
+  
+  #time {
+    color: #e4e4e4;
+    /* Gray color */
     font-size: medium;
     font-family: 'Courier New', monospace;
     font-weight: bold;
     float: right;
-    margin-right: 3%; /* Add margin to the right */
-
-}
-
-body {
+    margin-right: 3%;
+    /* Add margin to the right */
+  
+  }
+  
+  body {
     font-family: 'Arial', sans-serif;
     background-color: #161616;
     color: #ffffff;
-    min-height: 100vh; /* Set minimum height to 100% of the viewport height */
-    margin: 1; /* Remove default margin */
+    min-height: 100vh;
+    /* Set minimum height to 100% of the viewport height */
+    margin: 1;
+    /* Remove default margin */
     display: flex;
     flex-direction: column;
-}
-
-div.mainbody {
+  }
+  
+  iframe {
+    float: right;
+    /* margin-right: 10%; */
+    overflow: hidden;
+    border: none;
+    display: block;
+  
+  }
+  
+  div.mainbody {
     margin-left: 2%;
-}
-
-
-
-footer {
+  }
+  
+  #region {
+    color: #e4e4e4;
+    font-size: medium;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    float: left;
+    margin-left: 1%;
+  
+  }
+  
+  
+  footer {
     background-color: #161616;
     color: #fff;
     font-style: italic;
@@ -75,13 +95,9 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-}
-
-
-svg{
-    float: right;
-}
-
-g path:hover {
-    fill: lightblue !important;
-    }
+  }
+  
+  
+  img.locmarker {
+    margin-left: 3%;
+  }

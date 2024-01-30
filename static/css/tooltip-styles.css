@@ -1,0 +1,32 @@
+
+/* Tooltip container */
+#map-container {
+    position: relative;
+    /* display: inline-block; */
+}
+
+/* Tooltip text */
+.mapTooltipClass {
+    width: 120px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px; /* Use half of the width (120/2 = 60), to center the tooltip */
+    visibility: visible;
+    /* display: none; */
+    
+    font-family: 'Courier New', monospace;
+    opacity: 80%;
+    background-color: rgb(46, 84, 183);
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    padding: 8% 5%;
+    border-radius: 8px;
+    
+    position: absolute;
+    z-index: 1;
+}
+
+.maptooltip-above {
+    transform: translateY(-100%);
+  }
