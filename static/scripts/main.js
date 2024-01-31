@@ -95,3 +95,23 @@ function updateTime() {
 
 // Initial call to start updating time
 updateTime();
+
+
+
+document.addEventListener('message', (event) => {
+  const mapTooltip = document.getElementById('mapTooltip');
+
+  if (event.data.action === 'showTooltip') {
+      // Show the tooltip
+      const { x, y, content } = event.data;
+      mapTooltip.style.top = `${y + window.scrollY}px`;
+      mapTooltip.style.left = `${x + window.scrollX}px`;
+      mapTooltip.innerHTML = content;
+      mapTooltip.style.opacity = '1';
+      mapTooltip.classList.add('maptooltip-above');
+  } else if (event.data.action === 'hideTooltip') {
+      // Hide the tooltip
+      mapTooltip.style.opacity = '0';
+      mapTooltip.classList.remove('maptooltip-above');
+  }
+});

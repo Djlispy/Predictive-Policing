@@ -1,37 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const mapTooltip = document.getElementById('mapTooltip');
-  
-  // Add hover effects to elements with the class 'district'
-  document.querySelectorAll('.district').forEach(element => {
-      element.addEventListener('mouseover', () => {
-          element.classList.add('hover-color');
-          element.classList.add('mapTooltipClass');
-      });
+    const mapTooltip = window.parent.document.getElementById('mapTooltip');
 
-      element.addEventListener('mouseout', () => {
-          element.classList.remove('hover-color');
-      });
-  });
+    document.querySelectorAll('#sf-map path').forEach(district => {
+        district.addEventListener('mouseover', (event) => {
+            const districtName = district.getAttribute('data-name');
+            const { clientX, clientY } = event;
 
-  document.querySelectorAll('#sf-map path').forEach(district => {
-      district.addEventListener('mouseover', (event) => {
-          const districtName = district.getAttribute('data-name');
-          const { clientX, clientY } = event;
-          const leftPosition = clientX - 60; 
+            // Change the color of the district on hover
+            district.classList.add('hover-color');
 
+            // Send a message to the parent window to show the tooltip
+            window.parent.postMessage({ action: 'showTooltip', x: clientX, y: clientY, content: districtName }, '*');
+        });
 
-          // Display tooltip above the cursor
-          mapTooltip.style.top = `${clientY}px`;
-          mapTooltip.style.left = `${leftPosition}px`;
-          mapTooltip.innerHTML = districtName;
-          mapTooltip.style.display = 'block';
-          mapTooltip.classList.add('maptooltip-above');
-      });
+        district.addEventListener('mouseout', () => {
+            // Remove the hover color on mouse out
+            district.classList.remove('hover-color');
 
-      district.addEventListener('mouseout', () => {
-          // Hide tooltip on mouse out
-          mapTooltip.style.display = 'none';
-          mapTooltip.classList.remove('maptooltip-above');
-      });
-  });
+            // Send a message to the parent window to hide the tooltip
+            window.parent.postMessage({ action: 'hideTooltip' }, '*');
+        });
+    });
 });
