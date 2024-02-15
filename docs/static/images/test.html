@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #28272d;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .weather-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #313035;
+            color: #fff;
+        }
+
+        .weather-th, .weather-td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #e3e3e3;
+        }
+
+        .weather-th {
+            background-color: #f2f2f2;
+        }
+
+        .weather-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .weather-logo {
+            width: 30px;
+            height: 30px;
+            /* margin-right: 10px; */
+        }
+
+        .weather-title {
+            font-size: 1.5em;
+            color: #fff;
+        }
+
+        .weather-icon {
+            width: 30px;
+            height: 30px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .weather-temp-bar {
+            display: flex;
+            align-items: center;
+            width: 30%;
+            height: 1dvh;
+            border-radius: 7.5px;
+            background-color: #4e4e4e;
+            overflow: hidden;
+        }
+
+        .weather-temp-indicator {
+            height: 100%;
+            width: 8dvw;
+            background: linear-gradient(to right, #007BFF, #00BFFF, #FFD700, #FF4500);
+            position: relative;
+        }
+
+        .weather-temp-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        .weather-min-temp, .weather-max-temp {
+            text-align: center;
+            flex: 1;
+            font-size: 12px;
+        }
+    </style>
+    <script>
+        async function fetchWeather() {
+            const apiUrl = 'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/san%20francisco?unitGroup=us&key=AXMQD7FALEXQKPYWXCMGHFCMA&contentType=json';
+
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+
+                // Parse and display the 10-day forecast data
+                const forecastData = data.days.slice(0, 10);
+
+                const tableBody = document.getElementById('weatherTableBody');
+
+                forecastData.forEach((day, index) => {
+                    const row = document.createElement('tr');
+                    row.id = `weatherRow${index}`;
+
+                    // Format the date based on user's time zone (San Francisco)
+                    const date = new Date(day.datetimeEpoch * 1000);
+                    const dayOfWeek = getDayOfWeek(date.getDay());
+                    const formattedDate = (index === 0) ? 'Today' : `${dayOfWeek}, ${date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
+
+                    // Get weather icon based on conditions
+                    const icon = getWeatherIcon(day.icon);
+
+                    // Round temperatures
+                    const minTemp = Math.round(day.tempmin);
+                    const maxTemp = Math.round(day.tempmax);
+
+                    // Calculate normalized positions and adjusted width
+                    const weekMinTemp = Math.min(...forecastData.map(d => d.tempmin));
+                    const weekMaxTemp = Math.max(...forecastData.map(d => d.tempmax));
+                    const normalizedMinPos = ((minTemp - weekMinTemp) / (weekMaxTemp - weekMinTemp)) * 100;
+                    const normalizedMaxPos = ((maxTemp - weekMinTemp) / (weekMaxTemp - weekMinTemp)) * 100;
+                    const adjustedBarWidth = normalizedMaxPos - normalizedMinPos;
+
+                    row.innerHTML = `<td class="weather-td">${formattedDate}</td>
+                                     <td class="weather-td"><img src="${icon}" alt="${day.conditions}" class="weather-icon"></td>
+                                     <td class="weather-td">
+                                        <div class="weather-temp-label">
+                                            <span class="weather-min-temp">${minTemp}°</span>
+                                            <div class="weather-temp-bar" id="tempBar${index}">
+                                                <div class="weather-temp-indicator" style="left: ${normalizedMinPos}%; width: ${adjustedBarWidth}%; background: linear-gradient(to right, #007BFF, #00BFFF, #FFD700, #FF4500);"></div>
+                                            </div>
+                                            <span class="weather-max-temp">${maxTemp}°</span>
+                                        </div>
+                                     </td>`;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+            }
+        }
+
+        // Helper function to get the day of the week
+        function getDayOfWeek(day) {
+            const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            return daysOfWeek[day];
+        }
+
+        // Helper function to get weather icon based on conditions
+        function getWeatherIcon(iconName) {
+            const iconMapping = {
+                'clear-day': 'sun.png',
+                'clear-night': 'moon.png',
+                'partly-cloudy-day': 'partly-cloudy-day.png',
+                'partly-cloudy-night': 'partly-cloudy-night.png',
+                'cloudy': 'cloudy.png',
+                'rain': 'rain.png',
+                'snow': 'snow.png',
+                'sleet': 'sleet.png',
+                'wind': 'wind.png',
+                'fog': 'fog.png'
+            };
+
+            return iconMapping[iconName] || 'default.png';
+        }
+
+        // Fetch weather data on page load
+        window.onload = fetchWeather;
+    </script>
+    <title>10-Day Weather Forecast</title>
+</head>
+<body>
+
+    <div class="weather-header" id="weatherHeader">
+        <img src="logo.png" alt="Logo" class="weather-logo" id="weatherLogo">
+        <h2 class="weather-title" id="weatherTitle">10-DAY FORECAST</h2>
+    </div>
+
+    <table class="weather-table" id="weatherTable">
+        <tbody id="weatherTableBody">
+            <!-- Data will be dynamically populated here -->
+        </tbody>
+    </table>
+
+</body>
+</html>

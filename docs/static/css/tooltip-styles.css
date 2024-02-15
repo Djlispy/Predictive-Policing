@@ -1,0 +1,24 @@
+
+/* Tooltip text */
+.mapTooltipClass {
+    width: auto;
+    height: max-content;
+    
+    font-family: 'Courier New', monospace;
+    background-color: rgb(103, 117, 173);
+    font-weight: bold;
+    color: #efefef;
+    text-align: center;
+    border-radius: 7px;
+    position: absolute;
+    z-index: 6;
+    /* padding: 10px; */
+    
+    
+    word-wrap: break-word;
+    min-width: 150px; /* Set a minimum width to avoid it becoming too narrow */
+    max-width: 220px; 
+
+    opacity: 0.8;
+    transition: opacity 0.3s ease; /* Subtle transition effect */
+}
