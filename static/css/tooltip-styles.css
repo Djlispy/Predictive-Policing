@@ -1,31 +1,24 @@
-/* Tooltip container */
-#map-container {
-    position: relative;
-}
 
 /* Tooltip text */
 .mapTooltipClass {
-    width: 120px;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -60px;
+    width: auto;
+    height: max-content;
+    
     font-family: 'Courier New', monospace;
-    opacity: 0; /* Start with opacity set to 0 */
-    background-color: rgb(46, 84, 183);
+    background-color: rgb(103, 117, 173);
     font-weight: bold;
-    color: #fff;
+    color: #efefef;
     text-align: center;
-    padding: 8% 5%;
-    border-radius: 8px;
+    border-radius: 7px;
     position: absolute;
-    z-index: 1000;
-    transition: opacity 0.3s ease; /* Add a transition for a smoother appearance */
-}
+    z-index: 6;
+    /* padding: 10px; */
+    
+    
+    word-wrap: break-word;
+    min-width: 150px; /* Set a minimum width to avoid it becoming too narrow */
+    max-width: 220px; 
 
-.mapTooltipClass.show-tooltip {
-    opacity: 1; /* Make the tooltip visible when the class is applied */
-}
-
-.maptooltip-above {
-    transform: translateY(-100%);
+    opacity: 0.8;
+    transition: opacity 0.3s ease; /* Subtle transition effect */
 }
