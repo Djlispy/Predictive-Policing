@@ -115,16 +115,16 @@ function getDayOfWeek(day) {
 // Helper function to get weather icon based on conditions
 function getWeatherIcon(iconName) {
     const iconMapping = {
-        'clear-day': '../static/images/sun.png',
-        'clear-night': '../static/images/moon.png',
-        'partly-cloudy-day': '../static/images/partly-cloudy-day.png',
-        'partly-cloudy-night': '../static/images/partly-cloudy-night.png',
-        'cloudy': '../static/images/cloudy.png',
-        'rain': '../static/images/rain.png',
-        'snow': '../static/images/snow.png',
-        'sleet': '../static/images/sleet.png',
-        'wind': '../static/images/wind.png',
-        'fog': '../static/images/fog.png'
+        'clear-day': 'static/images/sun.png',
+        'clear-night': 'static/images/moon.png',
+        'partly-cloudy-day': 'static/images/partly-cloudy-day.png',
+        'partly-cloudy-night': 'static/images/partly-cloudy-night.png',
+        'cloudy': 'static/images/cloudy.png',
+        'rain': 'static/images/rain.png',
+        'snow': 'static/images/snow.png',
+        'sleet': 'static/images/sleet.png',
+        'wind': 'static/images/wind.png',
+        'fog': 'static/images/fog.png'
     };
 
     return iconMapping[iconName] || 'default.png';
