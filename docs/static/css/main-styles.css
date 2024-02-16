@@ -1,0 +1,79 @@
+body {
+  font-family: 'Courier New', monospace;
+  background-color: #28272d;
+  min-height: 100vh;
+  height: 1000px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+header {
+  background-color: #3E4870;
+  padding: 1%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2%;
+  position: sticky;
+  top: 1%;
+  z-index: 6;
+  opacity: 0.9;
+}
+
+.locmarker {
+  margin-left: 3%;
+  display: flex;
+}
+
+#region {
+  color: #e4e4e4;
+  font-size: medium;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  float: left;
+  margin-left: 1%;
+}
+
+.title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+}
+
+#loading {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: #e4e4e4;
+  flex: 1;
+  margin: 0;
+}
+
+.glow {
+  color: #e4e4e4;
+  text-shadow: 0 0 1px #e4e4e4, 0 0 15px #e4e4e4, 0 0 20px #e4e4e4;
+}
+
+#time {
+  color: #e4e4e4;
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  margin-right: 3%;
+  display: flex;
+}
+
+
+
+footer {
+  background-color: #28272d;
+  color: #fff;
+  font-style: italic;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

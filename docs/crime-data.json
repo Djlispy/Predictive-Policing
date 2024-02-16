@@ -1,0 +1,11 @@
+[
+    {"type": "Theft", "location": "28.126924291725, -82.70029555542", "time": "Morning"},
+    {"type": "Assault", "location": "15.44954, -88.89502", "time": "Evening"},
+    {"type": "Vandalism", "location": "40.7128, -74.0060", "time": "Afternoon"},
+    {"type": "Burglary", "location": "34.0522, -118.2437", "time": "Night"},
+    {"type": "Robbery", "location": "41.8781, -87.6298", "time": "Evening"},
+    {"type": "Fraud", "location": "51.5074, -0.1278", "time": "Morning"},
+    {"type": "Drug Offense", "location": "-33.8688, 151.2093", "time": "Night"},
+    {"type": "Kidnapping", "location": "19.4326, -99.1332", "time": "Afternoon"}
+]
+  
