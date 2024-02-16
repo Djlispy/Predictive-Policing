@@ -20,6 +20,9 @@ headers.forEach(headerText => {
 fetch('crime-data.json')
   .then(response => response.json())
   .then(crimeData => {
+    // Set the number of crimes
+    const numberOfCrimes = crimeData.length;
+
     // Populate table with crime data
     crimeData.slice(0, numberOfCrimes).forEach(crime => {
       const row = table.insertRow();
