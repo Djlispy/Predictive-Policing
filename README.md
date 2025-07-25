@@ -31,8 +31,8 @@ An interactive, AI-powered dashboard that visualizes and predicts potential crim
 | Technology | Purpose |
 |------------|---------|
 | **HTML, CSS, JavaScript** | Core frontend interface |
-| ** + SVG** | Interactive map rendering |
-| **OpenWeather API** | Real-time weather data |
+| **SVG** | Interactive map rendering |
+| **Visual Crossing Weather API** | Real-time weather data |
 | **Custom Trained AI Model** | Crime prediction logic |
 
 ---
